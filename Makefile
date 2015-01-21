@@ -37,4 +37,4 @@ clean:
 	rm -fv crypto *.o *~ algorithms/*~ *.exe crypto_hacky
 
 tidy:
-	rm -fv algorithms/*~
+	rm -fv algorithms/*~ *~
