@@ -6,7 +6,7 @@ Description: Transposition (en/de)cryption algorithms
 =====================================================*/
 
 #include "../algorithms.h"
-//TODO: doesn't currently encrypt or decrypt anything
+
 void  transpositionEncrypt( const char  plaintext[], char ciphertext[], unsigned key )
 {
 	//fdsaf

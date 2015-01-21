@@ -6,8 +6,6 @@ Description: The French (en/de)cryption algorithms
 ==================================================*/
 
 #include "../algorithms.h"
-
-//TODO: doesn't do anything yet
 void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  key[] )
 {
 	//askdfgalksdhfj
