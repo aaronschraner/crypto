@@ -11,6 +11,7 @@ char vigenereTable(char x, char y)
 {
 	return (x-MIN_ASCII_VALUE+y-MIN_ASCII_VALUE)%26+MIN_ASCII_VALUE;
 }
+
 //TODO: doesn't do anything yet
 void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  key[] )
 {

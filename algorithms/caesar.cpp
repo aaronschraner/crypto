@@ -8,6 +8,8 @@ Description: Caesar (en/de)cryption algorithms
 #include "../algorithms.h"
 void caesarEncrypt(const char plaintext[], char ciphertext[], int key)
 {
+	key=26-((-key)%26);
+	key=key%26;
 	//encrypt using caesar
 	for(int i=0;i<MAX_MSG_SIZE;i++)
 	{
