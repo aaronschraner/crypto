@@ -7,13 +7,18 @@ Description: The French (en/de)cryption algorithms
 
 #include "../algorithms.h"
 
+char vigenereTable(char x, char y)
+{
+	return (x-MIN_ASCII_VALUE+y-MIN_ASCII_VALUE)%26+MIN_ASCII_VALUE;
+}
 //TODO: doesn't do anything yet
 void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  key[] )
 {
 	//askdfgalksdhfj
 	for(int i=0;i<MAX_MSG_SIZE;i++)
 	{
-		ciphertext[i]=plaintext[i];
+		//ciphertext[i]=plaintext[i];
+		ciphertext[i]=vigenereTable('b',i);
 	}
 }
 
