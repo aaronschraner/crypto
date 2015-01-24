@@ -25,6 +25,7 @@ int keyLength(const char key[])
 	return 0;
 }
 
+//TODO: doesn't do anything yet
 void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  key[] )
 {
 	int len=keyLength(key);
