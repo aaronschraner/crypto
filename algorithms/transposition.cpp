@@ -5,6 +5,7 @@ Date: 01/19/2015
 Description: Transposition (en/de)cryption algorithms
 =====================================================*/
 
+//TODO: you don't need to padd it with z's
 #include "../algorithms.h"
 //TODO: doesn't currently encrypt or decrypt anything
 void  transpositionEncrypt( const char  plaintext[], char ciphertext[], unsigned key )
