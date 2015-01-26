@@ -114,7 +114,7 @@ void  transpositionDecrypt( const char  ciphertext[], char plaintext[], unsigned
 		for(unsigned x=0;x<xMax;x++)
 		{
 #ifdef DEBUG
-			std::cout << x + xMax*y << " <- " << y+yMax * x << " ( x = " << x << ", y = " << y << " )\n";
+			std::cout << x + xMax*y << " -> " << y+yMax * x << " ( x = " << x << ", y = " << y << " )\n";
 #endif
 			plaintext[ x + xMax * y ] = ciphertext[ y + yMax * x ];
 		}
