@@ -6,6 +6,7 @@ Description: The French (en/de)cryption algorithms
 ==================================================*/
 
 #include "../algorithms.h"
+#include <cstring>
 
 char vigenereTable(char x, char y)
 {
@@ -19,25 +20,14 @@ char vigenereTable(char x, char y)
 	return (x-MIN_ASCII_VALUE+y-MIN_ASCII_VALUE)%NUM_CHARACTERS+MIN_ASCII_VALUE;
 }
 
-//get the length of the key string
-int keyLength(const char key[])
-{
-	for(int i=0;i<MAX_MSG_SIZE; i++)
-	{
-		if(key[i]=='\0')
-			return i;
-	}
-	return 0;
-}
-
 //encrypt using vigenere algorithm
 void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  key[] )
 {
-	int len=keyLength(key); 
+	unsigned int len=strlen(key); 
 	//store the length of the key (so we don't need to keep checking)
 
 	//iterate through maximum message size
-	for(int i=0;i<MAX_MSG_SIZE;i++)
+	for(unsigned int i=0;i<strlen(plaintext);i++)
 	{
 		//if the character is in range
 		if(!CHAR_OUT_OF_RANGE(plaintext[i]))
@@ -55,11 +45,11 @@ void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  k
 
 void  vigenereDecrypt( const char  ciphertext[], char plaintext[], const char  key[] )
 {
-	int len=keyLength(key);
+	unsigned int len=strlen(key);
 	//store the length of the key
 
 	//iterate through the maximum message size
-	for(int i=0;i<MAX_MSG_SIZE;i++)
+	for(unsigned int i=0;i<strlen(ciphertext);i++)
 	{
 		//if the char is in range
 		if(!CHAR_OUT_OF_RANGE(ciphertext[i]))

@@ -7,12 +7,13 @@ Description: Substitution (en/de)cryption algorithms
 
 
 #include <iostream>
+#include <cstring>
 #include "../algorithms.h"
 void substitutionEncrypt(const char plaintext[], char ciphertext[], const char key[])
 {
 	//substitution
 	//iterate through maximum message size
-	for(int i=0;i<MAX_MSG_SIZE;i++)
+	for(unsigned int i=0;i<strlen(plaintext);i++)
 	{
 		if(!CHAR_OUT_OF_RANGE(plaintext[i])) 
 		//if the character is within defined range
@@ -26,6 +27,7 @@ void substitutionEncrypt(const char plaintext[], char ciphertext[], const char k
 			//use the plaintext char
 		}
 	}
+	ciphertext[strlen(plaintext)]='\0';
 }
 
 //generate a reverse lookup table for use with the decryption algorithm

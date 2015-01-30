@@ -10,7 +10,7 @@ Description: Transposition (en/de)cryption algorithms
 #include <iostream>
 #endif
 
-//I think it works with everything now
+//I think it works with at least 80% of input now
 
 //textLength: Length of a null-terminated string in a char array
 unsigned int textLength(const char text[])
@@ -64,6 +64,7 @@ void  transpositionEncrypt( const char  plaintext[], char ciphertext[], unsigned
 			//(with length error checking)
 		}
 	}
+	ciphertext[yMax*xMax]='\0';
 
 }
 
@@ -99,5 +100,6 @@ void  transpositionDecrypt( const char  ciphertext[], char plaintext[], unsigned
 			//(no error checking)
 		}
 	}
+	plaintext[textLength(ciphertext)]='\0';
 
 }

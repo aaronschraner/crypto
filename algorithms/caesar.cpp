@@ -5,6 +5,7 @@ Date: 01/19/2015
 Description: Caesar (en/de)cryption algorithms
 ==============================================*/
 
+#include <cstring>
 #include "../algorithms.h"
 void caesarEncrypt(const char plaintext[], char ciphertext[], int key)
 {
@@ -13,7 +14,7 @@ void caesarEncrypt(const char plaintext[], char ciphertext[], int key)
 
 	//encrypt using caesar
 	//iterate through message size
-	for(int i=0;i<MAX_MSG_SIZE;i++)
+	for(unsigned int i=0;i<strlen(plaintext);i++)
 	{
 		if (!CHAR_OUT_OF_RANGE(plaintext[i]))
 		{
@@ -36,7 +37,7 @@ void caesarDecrypt(const char ciphertext[], char plaintext[], int key)
 	
 	// decrypt using caesar
 	// iterate through message size
-	for(int i=0;i<MAX_MSG_SIZE;i++)
+	for(unsigned int i=0;i<strlen(ciphertext);i++)
 	{
 		if (!CHAR_OUT_OF_RANGE(ciphertext[i])) 
 		{
