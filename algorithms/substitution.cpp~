@@ -38,8 +38,6 @@ void genReverseTable(const char table[], char output[])
 }
 
 
-//using a reverse lookup table is more efficient and clean than parsing the entire string
-//to find the lookup values for each character.
 void substitutionDecrypt(const char ciphertext[], char plaintext[], const char key[])
 {
 	char reversekey[NUM_CHARACTERS]; 
