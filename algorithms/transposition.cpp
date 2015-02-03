@@ -6,9 +6,6 @@ Description: Transposition (en/de)cryption algorithms
 =====================================================*/
 
 #include "../algorithms.h"
-#ifdef DEBUG
-#include <iostream>
-#endif
 
 //I think it works with at least 80% of input now
 
@@ -39,23 +36,12 @@ void  transpositionEncrypt( const char  plaintext[], char ciphertext[], unsigned
 	const unsigned int xMax  = key; //columns in transposition table
 	const unsigned int yMax  = (ptLen+key-1) / key ; //rows in transposition table
 
-#ifdef DEBUG
-	std::cout << "DEBUG: \nxMax = " << xMax << "\nyMax = " << yMax << "\nptLen = " << ptLen << "\n";
-	//debugging output (local constant values)
-#endif
-
 	//iterate through rows
 	for(unsigned y=0;y<yMax;y++)
 	{
 		//iterate through positions in a row
 		for(unsigned x=0;x<xMax;x++)
 		{
-
-#ifdef DEBUG
-			std::cout << x + xMax*y << " -> " << y+yMax * x << " ( x = " << x << ", y = " << y << " )\n";
-			//show which position went to where (debug)
-#endif
-
 			ciphertext[ y + yMax * x ] = (
 					( x + xMax * y < ptLen) ? //(if we are within the string length)
 				   	plaintext[ x + xMax * y ] :  //use the appropriate plaintext character
@@ -78,28 +64,16 @@ void  transpositionDecrypt( const char  ciphertext[], char plaintext[], unsigned
 	const unsigned int xMax  = key;
 	const unsigned int yMax  = ptLen / key ;//+ (ptLen%key > 0 ? 1 : 2);
 
-#ifdef DEBUG
-	std::cout << "DEBUG: \nxMax = " << xMax << "\nyMax = " << yMax << "\nptLen = " << ptLen << "\n";
-	//debugging output (local constant values)
-#endif
-
 	//iterate through rows
 	for(unsigned y=0;y<yMax;y++)
 	{
 		//iterate through positions in a row
 		for(unsigned x=0;x<xMax;x++)
 		{
-
-#ifdef DEBUG
-			std::cout << x + xMax*y << " <- " << y+yMax * x << " ( x = " << x << ", y = " << y << " )\n";
-			//show which position went to where (debug)
-#endif
-
 			plaintext[ x + xMax * y ] = ciphertext[ y + yMax * x ];
 			//transpose input ciphertext into output plaintext
 			//(no error checking)
 		}
 	}
 	plaintext[textLength(ciphertext)]='\0';
-
 }
