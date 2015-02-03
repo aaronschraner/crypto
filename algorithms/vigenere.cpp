@@ -41,6 +41,7 @@ void  vigenereEncrypt( const char  plaintext[], char ciphertext[], const char  k
 			ciphertext[i]=plaintext[i];
 		}
 	}
+	ciphertext[strlen(plaintext)]=0;
 }
 
 void  vigenereDecrypt( const char  ciphertext[], char plaintext[], const char  key[] )
@@ -66,4 +67,5 @@ void  vigenereDecrypt( const char  ciphertext[], char plaintext[], const char  k
 			plaintext[i]=ciphertext[i];
 		}
 	}
+	plaintext[strlen(ciphertext)]=0;
 }

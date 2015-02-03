@@ -26,6 +26,7 @@ void caesarEncrypt(const char plaintext[], char ciphertext[], int key)
 			ciphertext[i]=plaintext[i]; //just use that character
 		}
 	}
+	ciphertext[strlen(plaintext)]=0;
 }
 
 void caesarDecrypt(const char ciphertext[], char plaintext[], int key)
@@ -50,4 +51,5 @@ void caesarDecrypt(const char ciphertext[], char plaintext[], int key)
 			plaintext[i]=ciphertext[i];
 		}
 	}
+	plaintext[strlen(ciphertext)]=0;
 }
